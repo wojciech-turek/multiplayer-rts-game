@@ -6,6 +6,9 @@ public class UnitMovement : NetworkBehaviour
 {
     private NavMeshAgent agent = null;
 
+    [SerializeField]
+    private Targeter targeter = null;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -25,6 +28,7 @@ public class UnitMovement : NetworkBehaviour
     [Command]
     public void CmdMove(Vector3 position)
     {
+        targeter.ClearTarget();
         if (
             !NavMesh
                 .SamplePosition(position,

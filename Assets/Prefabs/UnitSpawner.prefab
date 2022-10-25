@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1322816790870653038}
   - component: {fileID: 8041406978280649758}
   - component: {fileID: 6795388934936744211}
+  - component: {fileID: 5467655674214560074}
   m_Layer: 0
   m_Name: UnitSpawner
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552955035275991658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -83,6 +84,21 @@ MonoBehaviour:
   unitPrefab: {fileID: 4098707304247875557, guid: 00cd537a7a84647159fedd9354ff3824,
     type: 3}
   spawnPoint: {fileID: 5558000362246720297}
+--- !u!114 &5467655674214560074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552955035275991658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57923768c914c4ae5a3d39ee02825d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  aimAtPoint: {fileID: 8431239684644602249}
 --- !u!1 &5858138500255689792
 GameObject:
   m_ObjectHideFlags: 0
