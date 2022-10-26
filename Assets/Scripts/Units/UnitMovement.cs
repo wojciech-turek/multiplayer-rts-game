@@ -9,6 +9,9 @@ public class UnitMovement : NetworkBehaviour
     [SerializeField]
     private Targeter targeter = null;
 
+    [SerializeField]
+    float chaseRange = 10f;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -20,6 +23,23 @@ public class UnitMovement : NetworkBehaviour
     [ServerCallback]
     private void Update()
     {
+        Targetable target = targeter.GetTarget();
+        if (target != null)
+        {
+            if (
+                (target.transform.position - transform.position).sqrMagnitude >
+                chaseRange * chaseRange
+            )
+            {
+                agent.destination = target.transform.position;
+            }
+            else if (agent.hasPath)
+            {
+                agent.ResetPath();
+            }
+            return;
+        }
+
         if (!agent.hasPath) return;
         if (agent.remainingDistance > agent.stoppingDistance) return;
         agent.ResetPath();
